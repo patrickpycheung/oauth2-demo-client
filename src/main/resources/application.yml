@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            issuer-uri: https://dev-27548664.okta.com/oauth2/default
+        registration:
+          okta:
+            client-id: 0oaa3y50iy720qNn15d6
+            client-secret: 1T0D1jwMBmAX1d9UtD-9jnNlTOE42s_sLq-CpB-o
+            scope: openid,profile,email
+
+resourceServer:
+  url: http://localhost:8081
+  helloPath: /api/resource/hello
