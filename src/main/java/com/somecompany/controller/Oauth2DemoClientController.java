@@ -24,8 +24,8 @@ public class Oauth2DemoClientController {
     @Value("${resourceServer.helloPath}")
     private String resourceServerHelloPath;
 
-    @GetMapping("/")
-    public String home(@AuthenticationPrincipal OidcUser user) {
+    @GetMapping("")
+    public String welcome(@AuthenticationPrincipal OidcUser user) {
         return "Welcome " + user.getFullName();
     }
 
