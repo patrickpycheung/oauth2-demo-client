@@ -13,26 +13,28 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequestMapping("/api/client")
 public class Oauth2DemoClientController {
 
-	private String msg = "";
+    private String msg = "";
 
-	@Autowired
-	private WebClient webClient;
+    @Autowired
+    private WebClient webClient;
 
-	@Value("${resourceServer.url}")
-	private String resourceServerUrl;
+    @Value("${resourceServer.url}")
+    private String resourceServerUrl;
 
-	@Value("${resourceServer.helloPath}")
-	private String resourceServerHelloPath;
+    @Value("${resourceServer.helloPath}")
+    private String resourceServerHelloPath;
 
-	@GetMapping("/")
-	public String home(@AuthenticationPrincipal OidcUser user) {
-		return "Welcome " + user.getFullName();
-	}
+    @GetMapping("/")
+    public String home(@AuthenticationPrincipal OidcUser user) {
+        return "Welcome " + user.getFullName();
+    }
 
-	@GetMapping("/hello")
-	public String sayHello() {
-		webClient.get().uri(resourceServerUrl + resourceServerHelloPath).retrieve().bodyToMono(String.class)
-				.subscribe(msg -> this.msg = msg);
-		return this.msg;
-	}
+    @GetMapping("/hello")
+    public String sayHello() {
+        return webClient.get()
+                .uri(resourceServerUrl + resourceServerHelloPath)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+    }
 }
