@@ -7,8 +7,8 @@ spring:
             issuer-uri: https://dev-27548664.okta.com/oauth2/default
         registration:
           okta:
-            client-id: 0oaa3y50iy720qNn15d6
-            client-secret: 1T0D1jwMBmAX1d9UtD-9jnNlTOE42s_sLq-CpB-o
+            client-id: YOUR_CLIENT_ID
+            client-secret: YOUR_CLIENT_SECRET
             scope: openid,profile,email
 
 resourceServer:
