@@ -13,8 +13,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequestMapping("/api/client")
 public class Oauth2DemoClientController {
 
-    private String msg = "";
-
     @Autowired
     private WebClient webClient;
 
